@@ -1,7 +1,7 @@
 # Github blog
 Trying to make custom static blog engine-not jekyll.
 
-##개발 방향
+## 개발 방향
 -> md파일들은 따로 모아둔다.
 -> 헤더, 푸터 등 역시 따로 구현한다.
 -> 블로그에 표시되는 파일은 전부 같은 파일인데, 오직 가리키는 포스트의 주소만 다르다. 나머지는 전부 javascript로 구현하자.
@@ -15,9 +15,9 @@ Trying to make custom static blog engine-not jekyll.
 * 표시할 내용 : 자기소개, 공지사항, 최근 글 등.
  
 
-## 포스트 카테고리
+### 포스트 카테고리
 * 카티고리 목록은 json파일로 구현, jquery로 로드해서 사용한다.
 * 로컬에서 자동으로 정리하는 프로그램을 작성. 
 
-## 포스트 목록
+### 포스트 목록
 * 사이드바로 구현
