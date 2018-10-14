@@ -1,11 +1,28 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<title>Github Page</title>
+    <title>Github Page</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/showdown.min.js"></script>
+    <script src="/js/jquery-3.3.1.js"></script>
 </head>
 
 <body>
-<div>Hello World!</div>
+   <div id='header'></div>
+    <div id="main"></div>
+    <script>
+        var d = document.getElementById('main');
+        var converter = new showdown.Converter();
+        var text = '# hello, markdown!\n';
+        text+='This is markdown test  \n- - -\n';
+        text+='* This is markdown test\n';
+        text+='+ This is markdown test  \n';
+        text+='This is markdown test  \n';
+        text+='This is markdown test\n';
+        d.innerHTML = converter.makeHtml(text);
+         $("#header").load("/parts/header.html")
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+#part_header_outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+#part_header {
+    font-size: 30px;
+}
+
+#part_header_a{
+    text-decoration: none;
+    color: #000;
+}
