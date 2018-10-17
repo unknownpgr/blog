@@ -3,26 +3,57 @@
 
 <head>
     <title>Github Page</title>
+    <link rel="stylesheet" href="/blog/css/master.css">
     <link rel="stylesheet" href="/blog/css/index.css">
     <script src="/blog/js/showdown.min.js"></script>
     <script src="/blog/js/jquery-3.3.1.js"></script>
 </head>
 
 <body>
-   <div id='header'></div>
+    <div id='header'></div>
     <div id="main"></div>
+    <div id="footer"></div>
     <script>
         var d = document.getElementById('main');
         var converter = new showdown.Converter();
         var text = '# hello, markdown!\n';
-        text+='This is markdown test  \n- - -\n';
-        text+='* This is markdown test\n';
-        text+='+ This is markdown test  \n';
-        text+='This is markdown test  \n';
-        text+='This is markdown test\n of 2018-10-15 / 00:17';
+        text += 'This is markdown test  \n- - -\n';
+        text += '* This is markdown test\n';
+        text += '+ This is markdown test lorem100 asdfasdfasssssssssssssssssssssssssssssssssasdfasdfasdfljWF;EIssssssssssssssssssssssssssasdfasdfasdfljWF;EI \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test  \n';
+        text += 'This is markdown test\n of 2018-10-15 / 00:17';
         d.innerHTML = converter.makeHtml(text);
-         $("#header").load("/blog/parts/header.html")
     </script>
+    <script src="/blog/js/header_footer.js"></script>
 </body>
 
 </html>
