@@ -14,7 +14,6 @@ Trying to make custom static blog engine-not jekyll.
 
 ### 메인 페이지
 - 표시할 내용 : 자기소개, 공지사항, 최근 글 등.
- 
 
 ### 포스트 카테고리
 - 카티고리 목록은 json파일로 구현, jquery로 로드해서 사용한다.
@@ -30,9 +29,13 @@ Trying to make custom static blog engine-not jekyll.
 - 블로그에 글을 작성하면, 정보가 담긴 json파일을 업데이트함.
 - 블로그의 포스팅 하나는 한 개의 폴더로 이뤄짐. 이미지나 리소스(파일)은 img,res폴더를 만들어 관리함.(상대 경로 참조 가능.)
 - 각 포스트는 info.json파일이 있어서, 정보를 담도록 하자.
-- 블로그 관리자는, 각 폴더에서 
+- 블로그 관리자는, 각 폴더를 읽어 게시글의 제목과 태그 등등을 저장하여 json파일로 만든다. 생각해봤는데, 전수 검사하는 것 말고는 딱히 방법이 없는 것 같다.
 
 
 ### info.json File
 - 게시글의 제목 - 포스트 제일 위에 표시되거나 리스트에 보이는 제목
 - 게시글의 태그 - 태그or카테고리
+
+### list.json
+- ID and Nums By Tags
+- Titles By IDs
