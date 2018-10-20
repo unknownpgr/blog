@@ -5,6 +5,10 @@
     opacity: 0;
 }
 
+.label_title_frame {
+    margin-bottom: 32px;
+}
+
 #label_title {
     display: inline;
     color: #ccc;
@@ -14,6 +18,10 @@
     padding-right: 32px;
     border-radius: 4px;
     background-color: #666;
+}
+
+#tag_frame {
+    margin-top: 32px;
 }
 
 #label_tag {

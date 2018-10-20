@@ -9,7 +9,7 @@ $.ajax({
             $('#list_posts').append(list_html)
             list_html = ''
         }
-        
+
         setTimeout(() => {
             $('.list_item').css('opacity', 1)
         }, 500)
