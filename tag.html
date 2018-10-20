@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Github Page</title>
+    <link rel="stylesheet" href="/blog/css/master.css">
+    <link rel="stylesheet" href="/blog/css/tag.css">
+    <link rel="stylesheet" href="/blog/css/list.css">
+    <script src="/blog/js/jquery-3.3.1.js"></script>
+    <script src="js/tools.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id='header'></div>
+    <div id="main">
+        <div id="list">
+            <div class="list_frame_outer">
+                <div class="list_label" id="tag_label"></div>
+                <div class="list_frame_inner" id="tag_post_list">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search)
+        var tag = urlParams.get('tag')
+        var tag_splitted = tag.split('.')
+
+        $('#tag_label').html('Posts by tag ' + tag)
+
+        $.ajax({
+            url: '/blog/info/list_tag.json',
+            success: data => {
+                var current = data
+                for (var i in tag_splitted) {
+                    current = current.subDir[tag_splitted[i]]
+                }
+                var posts = current.posts
+                for (var i in posts) {
+                    $.ajax({
+                        url: '/blog/posts_raw/' + posts[i] + '/info.json',
+                        success: data => {
+                            var list_html = '<div class="list_item"><a href="/blog/post.html?id=' + posts[i] + '">' + data.title + '</a>'
+                            list_html += '<div class="list_item_sub">' + parseDate(posts[i]) + '</div>'
+                            list_html += '</div>'
+                            $('#tag_post_list').append(list_html)
+
+                            setInterval(() => {
+                                $('.list_item').css('opacity', 1)
+                            }, 500)
+                        },
+                        error: console.error
+                    })
+                }
+            }
+        })
+    </script>
+    <script src="/blog/js/header_footer.js"></script>
+</body>
+
+</html>

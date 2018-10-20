@@ -5,7 +5,7 @@
     <title>Github Page</title>
     <link rel="stylesheet" href="/blog/css/master.css">
     <link rel="stylesheet" href="/blog/css/index.css">
-    <script src="/blog/js/showdown.min.js"></script>
+    <link rel="stylesheet" href="/blog/css/list.css">
     <script src="/blog/js/jquery-3.3.1.js"></script>
     <style>
 
@@ -16,20 +16,22 @@
     <div id='header'></div>
     <div id="main">
         <div>Welcome!</div>
-        <div id="list_frame">
+        <div class="list_frame">
             <div class="list_frame_outer">
-                <div class="list_label"><strong>Tag List</strong></div>
+                <div class="list_label">Tag List</div>
                 <div id="list_tags"></div>
             </div>
+            <div class="list_frame_splitter"></div>
             <div class="list_frame_outer">
-                <div class="list_label"><strong>Post List</strong></div>
+                <div class="list_label">Post List</div>
                 <div id="list_posts"></div>
             </div>
         </div>
     </div>
     <div id="footer"></div>
-    <script src="/blog/js/list_tags.js"></script>
+    <script src="js/tools.js"></script>
     <script src="/blog/js/header_footer.js"></script>
+    <script src="/blog/js/list_tags.js"></script>
     <script src="/blog/js/list_posts.js"></script>
 </body>
 
