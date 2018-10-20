@@ -6,7 +6,7 @@
 }
 
 .label_title_frame {
-    margin-bottom: 32px;
+    margin-bottom: 64px;
 }
 
 #label_title {
@@ -21,7 +21,7 @@
 }
 
 #tag_frame {
-    margin-top: 32px;
+    margin-top: 64px;
 }
 
 #label_tag {
