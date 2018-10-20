@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Github Page</title>
+    <link rel="stylesheet" href="/blog/css/master.css">
+    <link rel="stylesheet" href="/blog/css/post.css">
+    <script src="/blog/js/showdown.min.js"></script>
+    <script src="/blog/js/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div id='header'></div>
+    <div id="main">
+        <div id="label_title"></div>
+    </div>
+    <div id="footer"></div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search)
+        var postId = urlParams.get('id')
+        if (!postId) postId = 201810191651
+        var postUrl = '/blog/posts_raw/' + postId + '/'
+        $.ajax({
+            url: postUrl + 'post.md',
+            success: data => {
+                var converter = new showdown.Converter();
+                $('#main').append(converter.makeHtml(data))
+                $.ajax({
+                    url: postUrl + 'info.json',
+                    success: data => {
+                        $('#label_title').html(data.title)
+                        var tagString = '<div id="label_tag">Tags : '
+                        data.tags.forEach(item => {
+                            tagString += '<a class="label_tag_item" href="/">' + item + '</a>'
+                        })
+                        tagString += '</div>'
+                        $('#main').append(tagString)
+                    }
+                })
+                setTimeout(() => {
+                    $('#main').css('opacity', '1')
+                    $('#main').css('margin', '0')
+                    $('#main').css('padding-top', '10%')
+                    $('#main').css('padding-left', '10%')
+                    $('#main').css('padding-right', '10%')
+                    $('#main').css('padding-bottom', '10%')
+                    $('#main').css('background-color', '#fafafa')
+                }, 500)
+            },
+            error: err => {
+                alert('Error on load post : ID = ' + postId)
+                window.location.href = '/blog/index.html'
+            }
+        })
+    </script>
+    <script src="/blog/js/header_footer.js"></script>
+</body>
+
+</html>

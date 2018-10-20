@@ -1,4 +1,18 @@
-body{
+@font-face {
+    font-family: 'BaseFont';
+    src: URL('/blog/fonts/KoPubDotumLight.ttf');
+}
+
+*{
+    font-family: BaseFont;
+    color: #444;
+}
+
+a{
+    text-decoration: none;
+}
+
+body {
     padding: 0px;
     margin: 0px;
     height: 100%;

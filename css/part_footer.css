@@ -1,5 +1,5 @@
 #part_footer_outer{
-    height: 100px;
+    height: 150px;
     display: flex;
     align-items:flex-end;
     background-color: #eee;
@@ -9,6 +9,7 @@
 }
 
 #part_footer_inner{
+    transition-duration: 1s;
     margin: 16px;
     color: #888;
 }

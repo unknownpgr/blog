@@ -1,0 +1,28 @@
+#main {
+    transition-duration: 1s;
+    margin-left: 10%;
+    width: 80%;
+    opacity: 0;
+}
+
+#label_title {
+    display: inline;
+    color: #ccc;
+    padding: 6px;
+    font-size: 150%;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 4px;
+    background-color: #666;
+}
+
+#label_tag {
+    color: #888;
+}
+
+.label_tag_item {
+    background-color: #ddd;
+    padding: 2px;
+    margin: 4px;
+    border-radius: 2px;
+}
