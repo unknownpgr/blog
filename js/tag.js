@@ -5,7 +5,7 @@ var tag_splitted = tag.split('.')
 $('#tag_label').html('Posts by tag ' + tag)
 
 $.ajax({
-    url: '/blog/info/list_tag.json',
+    url: '/blog/info/list_tag.json?v='+timeStamp(),
     success: data => {
         var current = data
         for (var i in tag_splitted) {
@@ -14,7 +14,7 @@ $.ajax({
         var posts = current.posts
         posts.forEach(i => {
             $.ajax({
-                url: '/blog/posts/' + i + '/info.json',
+                url: '/blog/posts/' + i + '/info.json?v='+timeStamp(),
                 success: data => {
                     var id = i+''
                     var list_html = '<div class="list_item"><a href="/blog/post.html?id=' + id + '">' + data.title + '</a>'

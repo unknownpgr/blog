@@ -1,5 +1,5 @@
 $.ajax({
-    url: '/blog/info/list_tag.json',
+    url: '/blog/info/list_tag.json?v='+timeStamp(),
     success: data => {
         console.log(data)
 

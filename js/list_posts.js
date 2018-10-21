@@ -1,5 +1,5 @@
 $.ajax({
-    url: '/blog/info/list_id.json',
+    url: '/blog/info/list_id.json?v='+timeStamp(),
     success: data => {
         var list_html = ''
         for (var id in data) {
