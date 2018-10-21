@@ -6,7 +6,9 @@ $.ajax({
     url: postUrl + 'post.md',
     success: data => {
         var converter = new showdown.Converter();
-        $('#content_frame').append(converter.makeHtml(data))
+        var mdHtml = converter.makeHtml(data);
+        mdHtml = mdHtml.replace('./', postUrl)
+        $('#content_frame').append(mdHtml)
     },
     error: err => {
         alert('Error on load post : ID = ' + postId)

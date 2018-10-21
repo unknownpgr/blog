@@ -130,7 +130,7 @@ function mainTask(dirRawPost) {
     })
 }
 
-mainTask('C:/Users/kjh3864/Desktop/GitHubBlog/blog/posts_raw')
+mainTask('C:/Users/kjh3864/Desktop/GitHubBlog/blog/posts')
     .then(r => {
         logData(JSON.parse(JSON.stringify(r)))
         return r
