@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Github blog editor</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="jquery-3.3.1.js"></script>
+    <script src="showdown.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="header_inner">[ Github Blog Editor ]</div>
+    </div>
+    <div id="edit_frame">
+        <div id="edit_input_frame">
+            <input type="text" id="edit_input_title">
+            <textarea id="edit_input_contents" ondragover="onDragOver(event)" ondrop="onDrop(event)"></textarea>
+            <div id="tag_label">Tags</div>
+            <div id="tag_frame">
+                <div class="tag_item" data-checked=0>ITEMA</div>
+                <div class="tag_item" data-checked=0>ITEMb</div>
+                <div class="tag_item" data-checked=0>ITEMc</div>
+                <div class="tag_item" data-checked=0>ITEMd</div>
+                <div class="tag_item" data-checked=0>ITEMe</div>
+                <div class="tag_item" data-checked=0>ITEMf</div>
+                <div class="tag_item" data-checked=0>ITEMg</div>
+                <div class="tag_item" data-checked=0>ITEMa</div>
+                <div class="tag_item" data-checked=0>ITEMB</div>
+                <div class="tag_item" data-checked=0>ITEMC</div>
+            </div>
+        </div>
+        <div id="edit_button_frame">
+            <button class="edit_button" id="edit_button_render">Render</button>
+            <form action="/submit" method="post" id="edit_form" enctype="multipart/form-data">
+                <input type="submit" class="edit_button" id="edit_button_submit" value="Submit" />
+            </form>
+        </div>
+        <div id="edit_show"></div>
+    </div>
+    <div id="footer">
+        Copyright 2018. Unknownpgr all rights reserved.
+    </div>
+
+    <script>
+        //Page rendring
+
+        var converter = new showdown.Converter();
+
+        $('#edit_button_render').click(() => {
+            converted = converter.makeHtml($('#edit_input_contents').val())
+            for (var i in imgNumList) {
+                converted = converted.replace('FILE_TEMP_' + i + '_', imgNumList[i])
+            }
+            $('#edit_show').html(converted)
+        })
+
+        $('#edit_frame').css('height', screen.height * 2 / 3 + $('#tag_frame').height() + 'px')
+
+        //Tag
+
+        var tag_list = []
+
+        $('.tag_item').click(e => {
+            if (e.target.dataset.checked == 0) {
+                e.target.style.color = '#eee'
+                e.target.dataset.checked = 1;
+                tag_list.push(e.target.innerHTML)
+            } else {
+                e.target.style.color = '#aaa'
+                e.target.dataset.checked = 0;
+                tag_list.pop(e.target.innerHTML)
+            }
+        })
+
+        //Image upload
+
+        var imgList = []
+        var imgNumList = []
+
+        function onDragOver(e) {
+            e.preventDefault()
+        }
+
+        function onDrop(e) {
+            e.preventDefault()
+            if (e.dataTransfer.items) {
+                for (var i = 0; i < e.dataTransfer.items.length; i++) {
+                    if (e.dataTransfer.items[i].kind === 'file') onFileDrop(e.dataTransfer.items[i].getAsFile());
+                }
+            } else {
+                for (var i = 0; i < e.dataTransfer.files.length; i++) {
+                    onFileDrop(e.dataTransfer.files[i]);
+                }
+            }
+            removeDragData(e)
+        }
+
+        function removeDragData(ev) {
+            if (ev.dataTransfer.items) ev.dataTransfer.items.clear()
+            else ev.dataTransfer.clearData();
+        }
+
+        function POST(data, url, success, err) {
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: data,
+                success: function(data, textStatus, jqXHR) {
+                    if (typeof data.error === 'undefined') success(data)
+                    else err(data)
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    err(errorThrown)
+                }
+            });
+        }
+
+        function onFileDrop(file) {
+            $('#edit_input_contents').append('\n![](FILE_TEMP_' + imgNumList.length + '_)  \n')
+            imgList.push(file)
+            imgNumList.push(URL.createObjectURL(file))
+            console.log(file)
+        }
+
+        //Submit post
+
+        $('#edit_button_render').click(() => {
+
+            var title = $('#edit_input_title').val()
+            var contents = $('#edit_input_contents').val()
+            var tags = tag_list + ""
+            var files = imgList
+
+            var form = $('#edit_form')
+
+            //Check
+            if (title.length == 0) {
+                alert('No title')
+                return;
+            }
+
+            for (var i in imgList) contents = contents.replace('FILE_TEMP_' + i + '_', './res/' + imgList[i].name)
+
+            // Add data to formData
+            form.append('<input name="title" type="text" value="' + title + '">')
+            form.append('<input name="contents" type="text" value="' + contents + '">')
+
+            for (var i in imgList) {
+                form.append('<input type="file" name="file_' + i + '">')
+                $('#file_' + i).val(imgNumList[i])
+            }
+
+            form.append('<input name="tags" type="text" value="' + tags + '">')
+        })
+
+    </script>
+</body>
+
+</html>

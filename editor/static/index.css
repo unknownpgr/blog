@@ -1,0 +1,149 @@
+@font-face {
+    font-family: 'BaseFont';
+    src: URL('/KoPubDotumLight.ttf');
+}
+
+* {
+    font-family: BaseFont;
+    color: #444;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+    background-color: #646464;
+}
+
+img{
+    width: 90%;
+    margin: 16px;
+    margin-left: 5%;
+}
+
+#header {
+    position: fixed;
+    height: 7.5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    box-shadow: 0 2px 8px -1.5px rgba(0, 0, 0, 1);
+    top: 0;
+}
+
+#header_inner {
+    padding-left: 64px;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+#header_inner:hover {
+    padding-left: 70%;
+    opacity: 0;
+}
+
+#edit_frame {
+    margin-top: 7.5%;
+    margin-bottom: 7.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+#edit_button_frame {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_button {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100px;
+    height: 50px;
+    font-size: 100%;
+    border-radius: 100px;
+    border: none;
+    background-color: #ccc;
+    outline: none;
+    transition-duration: .5s;
+}
+
+.edit_button:hover {
+    background-color: #aaa;
+    color: aliceblue;
+}
+
+#edit_input_frame {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    background-color: #777;
+    padding: 16px;
+    font-size: 100%;
+    flex-direction: column;
+}
+
+#edit_input_title {
+    outline: none;
+    border: solid 1px #888;
+    font-size: 110%;
+    padding: 8px;
+    background-color: #aaa;
+    color: #eee;
+}
+
+#edit_input_contents {
+    height: 100%;
+    resize: none;
+    margin-top: 16px;
+    padding: 16px;
+    outline: none;
+    font-size: 100%;
+    background-color: #aaa;
+    color: #eee;
+    border: solid 1px #888;
+}
+
+#edit_show {
+    width: 40%;
+    height: 100%;
+    background-color: #eee;
+    padding: 16px;
+    overflow-y: scroll;
+}
+
+#tag_label {
+    font-weight: bold;
+    margin-top: 48px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid;
+    color: #ccc;
+}
+
+#tag_frame {
+    padding-left: 8px;
+}
+
+.tag_item {
+    color: #aaa;
+    transition-duration: .5s;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.tag_item:hover {
+    margin-left: 4px;
+}
+
+#footer {
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 32px;
+}
