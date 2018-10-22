@@ -1,4 +1,8 @@
-//Page rendring
+//Get Tag Json
+$.ajax('/blog/info/list_tag.json')
+
+//Post rendring
+
 var converter = new showdown.Converter();
 
 $('#edit_button_render').click(() => {
@@ -11,7 +15,7 @@ $('#edit_button_render').click(() => {
 
 $('#edit_frame').css('height', screen.height * 2 / 3 + $('#tag_frame').height() + 'px')
 
-//Tag
+//Tagging
 
 var tag_list = []
 
@@ -43,7 +47,9 @@ function onFileDrop(file) {
     imgNumList.push(URL.createObjectURL(file))
 }
 
-$('#edit_button_render').click(() => {
+//Submit process
+
+$('#edit_button_submit').click(() => {
 
     var title = $('#edit_input_title').val()
 
