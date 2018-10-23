@@ -1,5 +1,4 @@
 # gitignore
 
-*.bat
 */node_modules
 /test

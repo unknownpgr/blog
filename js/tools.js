@@ -91,3 +91,18 @@ function getTagList(callback) {
         }
     })
 }
+
+//Promisefied ajax
+var ajaxPromise = url => new Promise((resolve, reject) => {
+    $.ajax({
+        url: url,
+        success: resolve,
+        error: reject
+    })
+})
+
+//Chain promises, preserving order
+var chainPromise = promiseArray => promiseArray.reduce((sum, current) => sum.then(() => current), Promise.resolve())
+
+//Map promisetask on array and chain it.
+var promiseForEach = (array, promiseTask) => chainPromise(array.map(promiseTask))

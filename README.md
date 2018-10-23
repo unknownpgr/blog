@@ -1,6 +1,7 @@
 # Github blog
 Trying to make custom static blog engine-not jekyll  
-Site : [https://unknownpgr.github.io/blog/](https://unknownpgr.github.io/blog/)
+Site(Blog) : [https://unknownpgr.github.io/blog/](https://unknownpgr.github.io/blog/)
+Site(Editor) : [https://unknownpgr.github.io/blog/editor/editor.html](https://unknownpgr.github.io/blog/editor/editor.html)
 
 ## 개발 방향
 - md파일들은 따로 모아둔다.  
