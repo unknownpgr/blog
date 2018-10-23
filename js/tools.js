@@ -1,3 +1,8 @@
+String.prototype.replaceAll = function (search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
 //Parse datetiem = postid to readable string
 function parseDate(date) {
     return date.substr(0, 4) + '/' + date.substr(0, 2) + '/' + date.substr(0, 2)
@@ -50,4 +55,39 @@ function getDateTime() {
         ("00" + d.getDate()).slice(-2) +
         ("00" + d.getHours()).slice(-2) +
         ("00" + d.getMinutes()).slice(-2)
+}
+
+//Get tag list
+function getTagList(callback) {
+
+    $.ajax({
+        url: '/blog/info/list_tag.json?v=' + timeStamp(),
+        success: data => {
+            console.log(data)
+
+            var tags = []
+
+            function addList(json, parant, current, depth) {
+                //For hierarchy purpose
+                if (current.length) {
+                    var tagStr = (parant + '.' + current).substr(2)
+                    var len = 0
+                    if (json.posts) len = json.posts.length
+                    tags.push({
+                        fullPath: tagStr,
+                        current: current,
+                        len: len,
+                        depth: depth
+                    })
+                }
+                if (json.subDir) {
+                    for (var i in json.subDir) addList(json.subDir[i], parant + '.' + current, i, depth + 1) //recursive call
+                }
+            }
+
+            addList(data, '', '', 0)
+
+            callback(tags)
+        }
+    })
 }

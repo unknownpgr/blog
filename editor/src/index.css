@@ -18,7 +18,7 @@ body {
     background-color: #646464;
 }
 
-img{
+img {
     width: 90%;
     margin: 16px;
     margin-left: 5%;
@@ -136,6 +136,8 @@ img{
     transition-duration: .5s;
     padding-top: 8px;
     padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tag_item:hover {

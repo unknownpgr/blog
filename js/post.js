@@ -3,11 +3,11 @@ var postId = urlParams.get('id')
 if (!postId) postId = 201810191651
 var postUrl = '/blog/posts/' + postId + '/'
 $.ajax({
-    url: postUrl + 'post.md?v='+timeStamp(),
+    url: postUrl + 'post.md?v=' + timeStamp(),
     success: data => {
         var converter = new showdown.Converter();
         var mdHtml = converter.makeHtml(data);
-        mdHtml = mdHtml.replace('./', postUrl)
+        mdHtml = mdHtml.replaceAll('./', postUrl)
         $('#content_frame').append(mdHtml)
     },
     error: err => {
