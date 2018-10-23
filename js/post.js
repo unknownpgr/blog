@@ -7,7 +7,7 @@ $.ajax({
     success: data => {
         var converter = new showdown.Converter();
         var mdHtml = converter.makeHtml(data);
-        mdHtml = mdHtml.replaceAll('./', postUrl)
+        mdHtml = mdHtml.replaceAll('"./', '"' + postUrl)
         $('#content_frame').append(mdHtml)
     },
     error: err => {

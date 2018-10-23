@@ -5,7 +5,7 @@
     opacity: 0;
 }
 
-img{
+img {
     width: 60%;
     margin: 32px;
     margin-left: 20%;
@@ -39,4 +39,8 @@ img{
     padding: 2px;
     margin: 4px;
     border-radius: 2px;
+}
+
+p a {
+    text-decoration: underline;
 }
