@@ -130,17 +130,17 @@ function mainTask(dirRawPost) {
     })
 }
 
-mainTask('C:/Users/kjh3864/Desktop/GitHubBlog/blog/posts')
+mainTask('C:/Users/kjh3864/Desktop/GitHubPage/blog/posts')
     .then(r => {
         logData(JSON.parse(JSON.stringify(r)))
         return r
     })
     .then(r => {
-        return asyncWriteFile('C:/Users/kjh3864/Desktop/GitHubBlog/blog/info/list_tag.json', JSON.stringify(r.byTag)).then(() => {
+        return asyncWriteFile('C:/Users/kjh3864/Desktop/GitHubPage/blog/info/list_tag.json', JSON.stringify(r.byTag)).then(() => {
             return r
         })
     }).then(r => {
-        return asyncWriteFile('C:/Users/kjh3864/Desktop/GitHubBlog/blog/info/list_id.json', JSON.stringify(r.byID))
+        return asyncWriteFile('C:/Users/kjh3864/Desktop/GitHubPage/blog/info/list_id.json', JSON.stringify(r.byID))
     })
     .catch(console.trace)
     .then(() => console.log('All done'))

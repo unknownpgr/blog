@@ -3,9 +3,9 @@ String.prototype.replaceAll = function (search, replacement) {
     return target.split(search).join(replacement);
 };
 
-//Parse datetiem = postid to readable string
+//Parse datetiem = postid to readable string : ex) 201810231917 => 2018/10/23
 function parseDate(date) {
-    return date.substr(0, 4) + '/' + date.substr(0, 2) + '/' + date.substr(0, 2)
+    return date.substr(0, 4) + '/' + date.substr(4, 2) + '/' + date.substr(6, 2)
 }
 
 //Timestamp for chache refresh

@@ -1,6 +1,5 @@
 var urlParams = new URLSearchParams(window.location.search)
-var postId = urlParams.get('id')
-if (!postId) postId = 201810191651
+var postId = urlParams.get('id') | 201810191651
 var postUrl = '/blog/posts/' + postId + '/'
 $.ajax({
     url: postUrl + 'post.md?v=' + timeStamp(),
